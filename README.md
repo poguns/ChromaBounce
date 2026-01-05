@@ -5,6 +5,3 @@ Simple and fun interactive project in c++ using SFML where the ball changes colo
 - SFML 
 - C++ compiler
 
-# Building 
-'''bash
-make
