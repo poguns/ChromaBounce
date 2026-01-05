@@ -16,6 +16,8 @@ add_subdirectory("lib/SFML")
 set(SFML_INCS "lib/SFML/include")
 link_directories("${CMAKE_BINARY_DIR}/lib/SFML/lib")
 
-add_executable(chroma_bounce src/main.cpp)
+add_executable(chroma_bounce 
+    src/main.cpp
+    src/stripes.cpp)
 target_include_directories(chroma_bounce PRIVATE ${SFML_INCS})
 target_link_libraries(chroma_bounce sfml-graphics)
