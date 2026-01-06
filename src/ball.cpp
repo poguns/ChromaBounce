@@ -7,8 +7,21 @@ Ball::Ball() {
     velocity = sf::Vector2f(0.f, 0.f);
 };
 
+void Ball::handleInput() {
+    
+    velocity.x = 0.f;
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+        velocity.x -= speed;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+        velocity.x += speed;
+    }
+};
+
+
 void Ball::update(float dt) {
-    ball.move(velocity * dt);
+    ball.move(dt * velocity);
 
 };
 
