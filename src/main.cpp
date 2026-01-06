@@ -1,10 +1,12 @@
 #include <SFML/Graphics.hpp>
 #include "stripes.hpp"
+#include "ball.hpp"
 
 int main(){
     sf::RenderWindow window(sf::VideoMode({800, 600}), "ChromaBounce");
 
-    Stripes stripes;    
+    Stripes stripes;
+    Ball ball; 
 
     while (window.isOpen()){
         sf::Event event;
@@ -19,6 +21,7 @@ int main(){
         }
         window.clear();
         stripes.render(window);
+        ball.render(window);
         window.display();
     }
     return 0;
