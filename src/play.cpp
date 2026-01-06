@@ -1,10 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include "play.hpp"
 
-Play::Play() {
-};
+Play::Play() {};
 
 void handleInput(sf::RenderWindow& window) {
+    Ball ball;
+    ball.handleInput();
 
 };
 

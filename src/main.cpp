@@ -5,7 +5,10 @@ Play play;
 
 int main(){
     sf::RenderWindow window(sf::VideoMode({800, 600}), "ChromaBounce");
+    window.setFramerateLimit(60);
     sf::Clock clock;
+
+    play.ball.setWindowSize(window.getSize());
 
     while (window.isOpen()){
         float dt = clock.restart().asSeconds();
