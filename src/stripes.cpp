@@ -50,3 +50,25 @@ sf::Color Stripes::getContrastColour(const sf::Color& bgColour) {
     );
 };
 
+// helper function to convert a hex string to sf::Color
+sf::Color Stripes::hexToColor(const std::string& hex) {
+    unsigned int r = 0, g = 0, b = 0;
+
+    // Remove '#' if present
+    std::string h = (hex[0] == '#') ? hex.substr(1) : hex;
+
+    if (h.length() == 6) {
+        std::stringstream ss;
+        ss << std::hex << h.substr(0, 2);
+        ss >> r;
+        ss.clear();
+        ss << std::hex << h.substr(2, 2);
+        ss >> g;
+        ss.clear();
+        ss << std::hex << h.substr(4, 2);
+        ss >> b;
+    }
+
+    return sf::Color(r, g, b);
+}
+

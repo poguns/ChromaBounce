@@ -1,6 +1,9 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <cmath>
+#include <string>
+#include <sstream>
+#include <iomanip>
 #pragma once
 
 //represents a colour stripe
@@ -24,17 +27,33 @@ public:
         return stripes;
     }
 
+    sf::Color hexToColor(const std::string& hex);
+
 private:
     std::vector<ColourStripe> stripes;
-    std::vector<sf::Color> baseColours {
-        {255,127,80}, //coral
-        {180,160,255}, //lavender
-        {152,255,152}, //mint
-        {135,206,250}, //sky blue
-        {255,218,185}, //peach
-        {170,200,170} //sage
+    std::vector<sf::Color> baseColours = {
+    hexToColor("#FFFFFF"),
+    hexToColor("#0055FF"),
+    hexToColor("#8B2263"),
+    hexToColor("#000000"),
+    hexToColor("#FFFFFF"),
+    hexToColor("#FFAA00"),
+    hexToColor("#228B22"),
+    hexToColor("#000000"),
+    hexToColor("#FFFFFF"),
+    hexToColor("#0055FF"),
+    hexToColor("#8B2263"),
+    hexToColor("#000000"),
+    hexToColor("#FFFFFF"),
+    hexToColor("#FFAA00"),
+    hexToColor("#228B22"),
+    hexToColor("#000000"),
+    hexToColor("#FFFFFF"),
+    hexToColor("#0055FF"),
+    hexToColor("#8B2263"),
+    hexToColor("#000000")
     };
     
-    float stripeWidth = 800.f / 6.0f; // create stripes
+    float stripeWidth = 800.f / 20.0f; // create stripes
 
 };
