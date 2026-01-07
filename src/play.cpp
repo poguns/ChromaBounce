@@ -1,12 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include "play.hpp"
 
-Play::Play() {};
-
-void handleInput(sf::RenderWindow& window) {
-    Ball ball;
-    ball.handleInput();
-
+Play::Play() {
+    ball.setStripes(stripes.getStripes());
 };
 
 

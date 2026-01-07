@@ -1,16 +1,18 @@
 #include <SFML/Graphics.hpp>
 #include <cmath>
 #include "ball.hpp"
+#include <iostream>
 
 Ball::Ball() {
     ball = sf::CircleShape(20.f);
     ball.setPosition(100.f, 300.f);
-    velocity = sf::Vector2f(0.f, 0.f);
+    velocity = sf::Vector2f(200.f, 150.f);
 };
 
 void Ball::handleInput() {
     //moving the ball around
     
+    // horizontal movement
     velocity.x = 0.f;
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
@@ -20,6 +22,7 @@ void Ball::handleInput() {
         velocity.x += speed;
     }
 
+    // vetrical movement
     velocity.y = 0.f;
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
@@ -62,11 +65,26 @@ void Ball::update(float dt) {
 
     ball.setPosition(pos);
 
+
+    // Stripe interception detection
+    sf::FloatRect bounds = ball.getGlobalBounds();
+    bool onStripe = false;
+
+    for (const auto& stripe : stripesRef) {
+        if (bounds.left < stripe.x + stripe.width && bounds.left + bounds.width > stripe.x) {
+            ball.setFillColor(stripe.contrastColour); // apply contrast
+            onStripe = true;
+            break; 
+        }
+    }
+
+    if (!onStripe) {
+        ball.setFillColor(sf::Color::White);
+    }
 };
 
 
 void Ball::render(sf::RenderWindow& window) {
-    ball.setFillColor(sf::Color::White);
     window.draw(ball);
 
 };

@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include "ball.hpp"
 #include "stripes.hpp"
+#pragma once
+
 
 class Play {
 public:
