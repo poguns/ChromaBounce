@@ -1,26 +1,23 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <cmath>
 #include "stripes.hpp"
 
 
 Stripes::Stripes() {
 
-    //create stripes
-    float stripeWidth = 800.f / 6.0f;
-
     //stripes colours
-    stripes.push_back({0 * stripeWidth, stripeWidth, sf::Color(255, 127, 80)});
-    stripes.push_back({1 * stripeWidth, stripeWidth, sf::Color(180, 160, 255)});
-    stripes.push_back({2 * stripeWidth, stripeWidth, sf::Color(152, 255, 152)});
-    stripes.push_back({3 * stripeWidth, stripeWidth, sf::Color(135, 206, 250)});
-    stripes.push_back({4 * stripeWidth, stripeWidth, sf::Color(255, 218, 185)});
-    stripes.push_back({5 * stripeWidth, stripeWidth, sf::Color(170, 200, 170)});
+    for (int i = 0; i < baseColours.size(); i++) {
+        sf::Color base = baseColours[i];
+        sf::Color contrast = getContrastColour(base);
 
+        stripes.push_back({ i * stripeWidth, stripeWidth, base, contrast });
+    }
 };
 
 
 void Stripes::update(float dt) {
-    // nothing for now,could be used to move or animation later?
+    // nothing for now, could be used to move or animation later?
 };
 
 
@@ -42,3 +39,14 @@ sf::Color Stripes::getStripColourAt(float x, const std::vector<ColourStripe>& st
     }
     return sf::Color::Black; //default if nothing matches
 };
+
+
+sf::Color Stripes::getContrastColour(const sf::Color& bgColour) {
+    //opposite color on the color wheel
+    return sf::Color(
+        255 - bgColour.r,  // invert red
+        255 - bgColour.g,  // invert green
+        255 - bgColour.b   // invert blue
+    );
+};
+

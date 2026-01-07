@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.11)
-project(chroma_bounce)
+project(ChromaBounce)
 
 # Require modern C++
 set(CMAKE_CXX_STANDARD 14)
@@ -16,10 +16,10 @@ add_subdirectory("lib/SFML")
 set(SFML_INCS "lib/SFML/include")
 link_directories("${CMAKE_BINARY_DIR}/lib/SFML/lib")
 
-add_executable(chroma_bounce 
+add_executable(ChromaBounce 
     src/main.cpp
     src/stripes.cpp
     src/ball.cpp
     src/play.cpp)
-target_include_directories(chroma_bounce PRIVATE ${SFML_INCS})
-target_link_libraries(chroma_bounce sfml-graphics)
+target_include_directories(ChromaBounce PRIVATE ${SFML_INCS})
+target_link_libraries(ChromaBounce sfml-graphics)

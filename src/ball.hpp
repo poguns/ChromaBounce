@@ -1,4 +1,7 @@
 #include <SFML/Graphics.hpp>
+#include "stripes.hpp"
+#pragma once
+
 
 class Ball {
 public:
@@ -28,11 +31,15 @@ public:
         return ball.getRadius(); 
     }
 
+    void setStripes(const std::vector<ColourStripe>& s) {
+        stripesRef = s;
+    }
+
     
 private:
     sf::CircleShape ball;
     float speed = 500.f;
     sf::Vector2f velocity;
     sf::Vector2u windowSize;
-
+    std::vector<ColourStripe> stripesRef;
 };
