@@ -32,18 +32,28 @@ public:
 private:
     std::vector<ColourStripe> stripes;
     std::vector<sf::Color> baseColours = {
-    hexToColor("#4C5938"),
-    hexToColor("#8A8C3E"),
-    hexToColor("#F28C0F"),
-    hexToColor("#F2790F"),
-    hexToColor("#F2E0DC"),
-    hexToColor("#F48FBF"),
-    hexToColor("#F2AF88"),
-    hexToColor("#8C0B0B"),
-    hexToColor("#D92323"),
-    hexToColor("#400A0A")
+    hexToColor("#FFFFFF"),
+    hexToColor("#0055FF"),
+    hexToColor("#8B2263"),
+    hexToColor("#000000"),
+    hexToColor("#FFFFFF"),
+    hexToColor("#FFAA00"),
+    hexToColor("#228B22"),
+    hexToColor("#000000"),
+    hexToColor("#FFFFFF"),
+    hexToColor("#0055FF"),
+    hexToColor("#8B2263"),
+    hexToColor("#000000"),
+    hexToColor("#FFFFFF"),
+    hexToColor("#FFAA00"),
+    hexToColor("#228B22"),
+    hexToColor("#000000"),
+    hexToColor("#FFFFFF"),
+    hexToColor("#0055FF"),
+    hexToColor("#8B2263"),
+    hexToColor("#000000")
     };
     
-    float stripeWidth = 800.f / 10.0f; // create stripes
+    float stripeWidth = 800.f / 20.0f; // create stripes
 
 };
